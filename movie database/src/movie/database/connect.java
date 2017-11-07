@@ -21,7 +21,7 @@ public class connect {
     static Connection conn = null;
      public static Connection getConnectDB(){
         
-        String path="jdbc:sqlite:D:/Rpl/movie_db.db";
+        String path="jdbc:sqlite:D:/Rplnew/movie_db.db";
         if(conn == null){
         try{
             conn=DriverManager.getConnection(path);
@@ -63,7 +63,7 @@ public class connect {
                 movies.add(new Movie(judul, 
                                    sutradara,
                                    genres, 
-                                   rsSelectmovie.getInt("tahun_terbit"),
+                                   rsSelectmovie.getInt("tahun_release"),
                                    rsSelectmovie.getString("sinopsis"),
                                    rsSelectmovie.getString("path_cover")
                                    ));
@@ -89,10 +89,10 @@ public class connect {
                 
                 ArrayList<String> genres = new ArrayList<>();
                 String sqlSelectGenre = "SELECT genre, "
-                        + "urutan_masuk "
+                        + "urutan "
                         + "FROM movie_genre "
                         + "WHERE Judul = \""+ judul + "\" AND "
-                        + "pengarang = \""+ sutradara + "\""
+                        + "Sutradara = \""+ sutradara + "\""
                         + "ORDER BY 2;";
                 
                 Statement stmtSelectGenre  = conn.createStatement();
@@ -141,11 +141,11 @@ public class connect {
     public static boolean createMovie(String judul, String sutradara,
             ArrayList<String> genres, int releasedate, String sinopsis,
              String pathSampul){
-        String sqlInsertBuku = "INSERT INTO movie(Judul,Sutradara,penerbit"
-                + "tahun_release,sinopsis,path_cover) VALUES(?,?,?,?,?,?,?,?);";
+        String sqlInsertMovie = "INSERT INTO movie(Judul,Sutradara"
+                + "tahun_release,sinopsis,path_cover) VALUES(?,?,?,?,?);";
  
         try (Connection conn = getConnectDB();
-            PreparedStatement pstmtInsertMovie = conn.prepareStatement(sqlInsertBuku)) {
+            PreparedStatement pstmtInsertMovie = conn.prepareStatement(sqlInsertMovie)) {
             pstmtInsertMovie.setString(1, judul);
             pstmtInsertMovie.setString(2, sutradara);
             if(releasedate == 0) pstmtInsertMovie.setString(3, "");

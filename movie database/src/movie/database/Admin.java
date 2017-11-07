@@ -12,7 +12,7 @@ package movie.database;
 public class Admin extends javax.swing.JFrame {
 
     /**
-     * Creates new form Admin
+     * Creates new form 
      */
     public Admin() {
         initComponents();
@@ -28,6 +28,8 @@ public class Admin extends javax.swing.JFrame {
     private void initComponents() {
 
         btnLogout = new javax.swing.JButton();
+        btnTambahMovie = new javax.swing.JButton();
+        btnTambahGenre = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -39,20 +41,45 @@ public class Admin extends javax.swing.JFrame {
             }
         });
 
+        btnTambahMovie.setText("Tambah Movie");
+        btnTambahMovie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTambahMovieActionPerformed(evt);
+            }
+        });
+
+        btnTambahGenre.setText("Tambah Genre");
+        btnTambahGenre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTambahGenreActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 650, Short.MAX_VALUE)
-                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(btnTambahMovie)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnTambahGenre)
+                .addContainerGap(480, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(469, Short.MAX_VALUE))
+                .addGap(76, 76, 76)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnTambahMovie)
+                    .addComponent(btnTambahGenre))
+                .addContainerGap(395, Short.MAX_VALUE))
         );
 
         pack();
@@ -64,6 +91,19 @@ public class Admin extends javax.swing.JFrame {
         Admin.this.setVisible(false);
         l.setVisible(true);
     }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void btnTambahMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahMovieActionPerformed
+        // TODO add your handling code here:
+        DlgAddmovie dam = new DlgAddmovie(this,true);
+            dam.setLocationRelativeTo(null);
+            dam.setVisible(true);
+            
+        //    tampilSemuaDataMovie();
+    }//GEN-LAST:event_btnTambahMovieActionPerformed
+
+    private void btnTambahGenreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahGenreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnTambahGenreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -102,5 +142,7 @@ public class Admin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnTambahGenre;
+    private javax.swing.JButton btnTambahMovie;
     // End of variables declaration//GEN-END:variables
 }
