@@ -64,12 +64,12 @@ public class Mainpage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        fldSearch = new javax.swing.JTextField();
         separator1 = new javax.swing.JSeparator();
         btnTambahMovie = new javax.swing.JButton();
         tabMovie = new javax.swing.JTabbedPane();
         pnlTemp = new javax.swing.JPanel();
         btnTambahGenre = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -85,16 +85,6 @@ public class Mainpage extends javax.swing.JFrame {
             }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
-            }
-        });
-
-        fldSearch.setToolTipText("Search here..");
-        fldSearch.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        fldSearch.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
-        fldSearch.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        fldSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fldSearchActionPerformed(evt);
             }
         });
 
@@ -127,6 +117,13 @@ public class Mainpage extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Search");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -139,18 +136,19 @@ public class Mainpage extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(btnTambahMovie)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnTambahGenre))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(fldSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnTambahGenre)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(238, 238, 238)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(fldSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
+                .addGap(43, 43, 43)
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
                 .addComponent(separator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -542,7 +540,7 @@ public class Mainpage extends javax.swing.JFrame {
         
 
         //memberi placeholder field search
-        new PlaceHolder(fldSearch,"Search here...");
+       // new PlaceHolder(fldSearch,"Search here...");
       
         
        tampilSemuaDataMovie();
@@ -558,9 +556,11 @@ public class Mainpage extends javax.swing.JFrame {
        
     }//GEN-LAST:event_btnTambahGenreActionPerformed
 
-    private void fldSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fldSearchActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_fldSearchActionPerformed
+        new Search().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -603,7 +603,7 @@ public class Mainpage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnTambahGenre;
     private javax.swing.JButton btnTambahMovie;
-    private javax.swing.JTextField fldSearch;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel pnlTemp;
     private javax.swing.JSeparator separator1;
     private javax.swing.JTabbedPane tabMovie;
