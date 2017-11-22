@@ -100,23 +100,23 @@ public class dlghapusGenre extends javax.swing.JDialog {
 
     private void btnYaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnYaActionPerformed
         // TODO add your handling code here:
-     //   String genre= cbGenre1;
+       String genre= (String)cbGenre1.getSelectedItem();
         boolean isSuccess = false;
         
-        // isSuccess = DatabaseUtil.createGenre(genre);
+         isSuccess = DatabaseUtil.deleteGenre(genre);
             
                 if(isSuccess){
                     JOptionPane.showMessageDialog(this, 
-                                        "Genre berhasil ditambahkan",
-                                        "Genre Ditambahkan",
+                                        "Genre berhasil dihapus",
+                                        "Genre dihapus",
                                         JOptionPane.INFORMATION_MESSAGE);
                     this.dispose();
                 }
                 else{
                     
                     JOptionPane.showMessageDialog(this,
-                                        "Genre gagal ditambahkan",
-                                        "Error: Genre Gagal Ditambahkan",
+                                        "Genre gagal dihapus",
+                                        "Error: Genre Gagal dihapus",
                                         JOptionPane.ERROR_MESSAGE);
                 }
 
