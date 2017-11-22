@@ -117,7 +117,7 @@ public class dlgTambahMovie extends javax.swing.JDialog {
             }
         });
 
-        lblPeringkat.setText("Peringkat");
+        lblPeringkat.setText("Rating:");
 
         spiPeringkat.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
 

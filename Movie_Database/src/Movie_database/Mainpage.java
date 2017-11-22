@@ -70,6 +70,7 @@ public class Mainpage extends javax.swing.JFrame {
         pnlTemp = new javax.swing.JPanel();
         btnTambahGenre = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        btnHapusGenre = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -100,11 +101,11 @@ public class Mainpage extends javax.swing.JFrame {
         pnlTemp.setLayout(pnlTempLayout);
         pnlTempLayout.setHorizontalGroup(
             pnlTempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 581, Short.MAX_VALUE)
+            .addGap(0, 821, Short.MAX_VALUE)
         );
         pnlTempLayout.setVerticalGroup(
             pnlTempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 215, Short.MAX_VALUE)
+            .addGap(0, 328, Short.MAX_VALUE)
         );
 
         tabMovie.addTab("tab1", pnlTemp);
@@ -124,6 +125,13 @@ public class Mainpage extends javax.swing.JFrame {
             }
         });
 
+        btnHapusGenre.setText("-");
+        btnHapusGenre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHapusGenreActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -135,8 +143,11 @@ public class Mainpage extends javax.swing.JFrame {
                     .addComponent(tabMovie, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(btnTambahMovie)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnTambahGenre)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnTambahGenre, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnHapusGenre)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(238, 238, 238)
@@ -153,7 +164,8 @@ public class Mainpage extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnTambahMovie)
-                    .addComponent(btnTambahGenre))
+                    .addComponent(btnTambahGenre)
+                    .addComponent(btnHapusGenre))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tabMovie)
                 .addContainerGap())
@@ -562,6 +574,13 @@ public class Mainpage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btnHapusGenreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusGenreActionPerformed
+        // TODO add your handling code here:
+         dlghapusGenre dhg = new dlghapusGenre(this,true);
+            dhg.setVisible(true);
+            dhg.setLocationRelativeTo(this);
+    }//GEN-LAST:event_btnHapusGenreActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -601,6 +620,7 @@ public class Mainpage extends javax.swing.JFrame {
          
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnHapusGenre;
     private javax.swing.JButton btnTambahGenre;
     private javax.swing.JButton btnTambahMovie;
     private javax.swing.JButton jButton1;

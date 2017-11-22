@@ -261,7 +261,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblPeringkat">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Peringkat"/>
+        <Property name="text" type="java.lang.String" value="Rating:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="spiPeringkat">

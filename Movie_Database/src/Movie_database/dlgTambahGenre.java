@@ -5,6 +5,8 @@
  */
 package Movie_database;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Fabrian
@@ -95,10 +97,31 @@ public class dlgTambahGenre extends javax.swing.JDialog {
 
     private void btnYaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnYaActionPerformed
         // TODO add your handling code here:
+        String genre= fldGenre.getText();
+        boolean isSuccess = false;
+        
+         isSuccess = DatabaseUtil.createGenre(genre);
+            
+                if(isSuccess){
+                    JOptionPane.showMessageDialog(this, 
+                                        "Genre berhasil ditambahkan",
+                                        "Genre Ditambahkan",
+                                        JOptionPane.INFORMATION_MESSAGE);
+                    this.dispose();
+                }
+                else{
+                    
+                    JOptionPane.showMessageDialog(this,
+                                        "Genre gagal ditambahkan",
+                                        "Error: Genre Gagal Ditambahkan",
+                                        JOptionPane.ERROR_MESSAGE);
+                }
+
     }//GEN-LAST:event_btnYaActionPerformed
 
     private void btnBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalActionPerformed
         // TODO add your handling code here:
+         this.dispose();
     }//GEN-LAST:event_btnBatalActionPerformed
 
     /**

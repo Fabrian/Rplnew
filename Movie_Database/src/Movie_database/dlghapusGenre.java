@@ -5,6 +5,9 @@
  */
 package Movie_database;
 
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Fabrian
@@ -31,6 +34,7 @@ public class dlghapusGenre extends javax.swing.JDialog {
         btnYa = new javax.swing.JToggleButton();
         btnBatal = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
+        cbGenre1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -41,6 +45,13 @@ public class dlghapusGenre extends javax.swing.JDialog {
         btnBatal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel1.setText("Anda yakin akan menghapus genre tersebut ?");
+
+        cbGenre1.setModel(new DefaultComboBoxModel(DatabaseUtil.selectSemuaGenre().toArray()));
+        cbGenre1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbGenre1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -55,23 +66,31 @@ public class dlghapusGenre extends javax.swing.JDialog {
                         .addComponent(btnBatal, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(36, 36, 36)
-                        .addComponent(jLabel1)))
-                .addContainerGap(41, Short.MAX_VALUE))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbGenre1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(101, 101, 101))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel1)
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(cbGenre1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBatal)
                     .addComponent(btnYa))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cbGenre1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbGenre1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbGenre1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -119,6 +138,7 @@ public class dlghapusGenre extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnBatal;
     private javax.swing.JToggleButton btnYa;
+    private javax.swing.JComboBox<String> cbGenre1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

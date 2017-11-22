@@ -298,4 +298,22 @@ public class DatabaseUtil {
         }
         return false;
     }
+    public static boolean createGenre(String genre){
+        String sqlInsertGenre = "INSERT INTO genre(nama_genre) VALUES(?);";
+ 
+        try (Connection conn = connect();
+            PreparedStatement pstmtInsertGenre = conn.prepareStatement(sqlInsertGenre)) {
+            pstmtInsertGenre.setString(1, genre);
+           int count = pstmtInsertGenre.executeUpdate();
+            
+            if(count > 0){
+               return true;
+                
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        
+        return false;
+    }
 }
