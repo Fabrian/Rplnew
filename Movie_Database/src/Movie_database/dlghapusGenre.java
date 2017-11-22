@@ -40,11 +40,16 @@ public class dlghapusGenre extends javax.swing.JDialog {
 
         btnYa.setText("Ya");
         btnYa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnYa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnYaActionPerformed(evt);
+            }
+        });
 
         btnBatal.setText("Batal");
         btnBatal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabel1.setText("Anda yakin akan menghapus genre tersebut ?");
+        jLabel1.setText("pilih genre yang akan dihapus :");
 
         cbGenre1.setModel(new DefaultComboBoxModel(DatabaseUtil.selectSemuaGenre().toArray()));
         cbGenre1.addActionListener(new java.awt.event.ActionListener() {
@@ -60,29 +65,30 @@ public class dlghapusGenre extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
-                        .addComponent(btnYa, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnBatal, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(68, 68, 68)
+                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbGenre1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(101, 101, 101))
+                        .addGap(88, 88, 88)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbGenre1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnYa, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)
+                                .addComponent(btnBatal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                .addGap(91, 91, 91))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbGenre1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(cbGenre1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBatal)
-                    .addComponent(btnYa))
-                .addContainerGap(28, Short.MAX_VALUE))
+                    .addComponent(btnYa)
+                    .addComponent(btnBatal))
+                .addContainerGap())
         );
 
         pack();
@@ -91,6 +97,30 @@ public class dlghapusGenre extends javax.swing.JDialog {
     private void cbGenre1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbGenre1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbGenre1ActionPerformed
+
+    private void btnYaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnYaActionPerformed
+        // TODO add your handling code here:
+     //   String genre= cbGenre1;
+        boolean isSuccess = false;
+        
+        // isSuccess = DatabaseUtil.createGenre(genre);
+            
+                if(isSuccess){
+                    JOptionPane.showMessageDialog(this, 
+                                        "Genre berhasil ditambahkan",
+                                        "Genre Ditambahkan",
+                                        JOptionPane.INFORMATION_MESSAGE);
+                    this.dispose();
+                }
+                else{
+                    
+                    JOptionPane.showMessageDialog(this,
+                                        "Genre gagal ditambahkan",
+                                        "Error: Genre Gagal Ditambahkan",
+                                        JOptionPane.ERROR_MESSAGE);
+                }
+
+    }//GEN-LAST:event_btnYaActionPerformed
 
     /**
      * @param args the command line arguments

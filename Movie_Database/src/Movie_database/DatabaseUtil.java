@@ -316,4 +316,21 @@ public class DatabaseUtil {
         
         return false;
     }
+    public static boolean deleteGenre(String genre){
+        String sqlDeleteGenre = "DELETE FROM genre WHERE nama_genre = ?;";
+        try(Connection conn = connect();
+            PreparedStatement pstmtDeleteGenre = conn.prepareStatement(sqlDeleteGenre)) {
+            pstmtDeleteGenre.setString(1, genre);
+            
+            
+            int count = pstmtDeleteGenre.executeUpdate();
+            
+            if(count > 0){
+                return true;
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return false;
+    }
 }
