@@ -47,6 +47,7 @@ public class Mainpage extends javax.swing.JFrame {
 //    public String password = "admin";
    // public boolean isLogin = false;
     public static final String NEWLINE = "\n";
+   // public static enum STATE_PANEL_MOVIE(KOSONG,ALL,SEARCHED)
     private JPanel pnlSemuaMovie = new JPanel();
     /**
      * Creates new form Home
@@ -69,9 +70,13 @@ public class Mainpage extends javax.swing.JFrame {
         tabMovie = new javax.swing.JTabbedPane();
         pnlTemp = new javax.swing.JPanel();
         btnTambahGenre = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         btnHapusGenre = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
+        fldsearch = new javax.swing.JTextField();
+        rbjudul = new javax.swing.JRadioButton();
+        rbsutradara = new javax.swing.JRadioButton();
+        rbstudio = new javax.swing.JRadioButton();
+        rbsinopsis = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -106,7 +111,7 @@ public class Mainpage extends javax.swing.JFrame {
         );
         pnlTempLayout.setVerticalGroup(
             pnlTempLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 328, Short.MAX_VALUE)
+            .addGap(0, 502, Short.MAX_VALUE)
         );
 
         tabMovie.addTab("tab1", pnlTemp);
@@ -116,13 +121,6 @@ public class Mainpage extends javax.swing.JFrame {
         btnTambahGenre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTambahGenreActionPerformed(evt);
-            }
-        });
-
-        jButton1.setText("Search");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
             }
         });
 
@@ -141,6 +139,30 @@ public class Mainpage extends javax.swing.JFrame {
             }
         });
 
+        fldsearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fldsearchActionPerformed(evt);
+            }
+        });
+        fldsearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                fldsearchKeyReleased(evt);
+            }
+        });
+
+        rbjudul.setText("judul");
+        rbjudul.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbjudulActionPerformed(evt);
+            }
+        });
+
+        rbsutradara.setText("Sutradara");
+
+        rbstudio.setText("Studio");
+
+        rbsinopsis.setText("Sinopsis");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -150,18 +172,28 @@ public class Mainpage extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(tabMovie)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnTambahMovie)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnTambahGenre, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnHapusGenre)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(39, 39, 39)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(65, 65, 65)
+                                .addComponent(rbjudul)
+                                .addGap(18, 18, 18)
+                                .addComponent(rbsutradara)
+                                .addGap(18, 18, 18)
+                                .addComponent(rbstudio)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(rbsinopsis))
+                            .addComponent(fldsearch, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -172,13 +204,20 @@ public class Mainpage extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addComponent(separator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnTambahMovie)
-                    .addComponent(btnTambahGenre)
-                    .addComponent(btnHapusGenre)
-                    .addComponent(jButton1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(fldsearch)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnTambahMovie)
+                        .addComponent(btnTambahGenre)
+                        .addComponent(btnHapusGenre)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tabMovie)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbjudul)
+                    .addComponent(rbsutradara)
+                    .addComponent(rbstudio)
+                    .addComponent(rbsinopsis))
+                .addGap(18, 18, 18)
+                .addComponent(tabMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -210,9 +249,9 @@ public class Mainpage extends javax.swing.JFrame {
             panel.setPreferredSize(new Dimension(width,height));
             panel.setVisible(true);
             
-           if(movie.getStatus()=="2"){
+           if(movie.getStatus().equals("2")){
             panel.setBackground(Color.GREEN);
-          }else if(movie.getStatus()=="0"){
+          }else{
             panel.setBackground(Color.YELLOW);
                   }
         
@@ -549,11 +588,384 @@ public class Mainpage extends javax.swing.JFrame {
         tabMovie.add(new JScrollPane(pnlSemuaMovie),BorderLayout.CENTER);
         tabMovie.setTitleAt(0,"All");
     }
-    
+     private void tampilDataMovie(ArrayList<Movie> movies){
+        tabMovie.removeAll();
+        
+        pnlSemuaMovie.removeAll();
+       // ArrayList<Movie> movies = DatabaseUtil.selectSemuaMovie();
+        
+        GridBagLayout gblPanelAll = new GridBagLayout();
+        GridBagConstraints gbcPanelAll = new GridBagConstraints();
+        
+        pnlSemuaMovie.setLayout(gblPanelAll);
+        
+        int x = 0,y = 0;
+        int width = 300; 
+        int height = 250;
+        
+        for(Movie movie : movies){
+            JPanel panel = new JPanel();
+            GridBagLayout gblPanel = new GridBagLayout();
+            GridBagConstraints gbcPanel = new GridBagConstraints();
+            panel.setLayout(gblPanel);
+            panel.setMinimumSize(new Dimension(width,height));
+            panel.setPreferredSize(new Dimension(width,height));
+            panel.setVisible(true);
+            
+           if(movie.getStatus().equals("2")){
+            panel.setBackground(Color.GREEN);
+          }else{
+            panel.setBackground(Color.YELLOW);
+                  }
+        
+            //gambar
+            gbcPanel.fill = GridBagConstraints.NONE;
+            gbcPanel.weightx = 1;
+            gbcPanel.weighty = 10;
+            gbcPanel.gridwidth = 1;
+            gbcPanel.gridheight = 10;
+            gbcPanel.gridx = 0;
+            gbcPanel.gridy = 0;
+            JLabel lblCover = new JLabel();
+            panel.add(lblCover,gbcPanel);
+            BufferedImage coverImage;
+            try{
+                coverImage = ImageIO.read(new File("images/movie/" + movie.getPathSampul()));
+                BufferedImage scaledCoverImage = Scalr.resize(coverImage,205);
+
+                ImageIcon coverIcon = new ImageIcon(scaledCoverImage);
+                lblCover.setIcon(coverIcon);
+            }
+            catch(IOException e){
+            }
+            
+            int xKanan = 1;
+            Font fDataMovie = new Font(Font.SANS_SERIF,Font.PLAIN,12);
+            Font fJudulMovie = new Font(Font.SANS_SERIF,Font.BOLD,18);
+            
+            
+            gbcPanel.insets = new Insets(3,3,3,3);
+            
+
+            //judul            
+            gbcPanel.fill = GridBagConstraints.BOTH;
+            gbcPanel.weightx = 8;
+            gbcPanel.weighty = 1;
+            gbcPanel.gridwidth = 7;
+            gbcPanel.gridheight = 1;
+            gbcPanel.gridx = 1;
+            gbcPanel.gridy = 0;
+            JLabel lblJudul = new JLabel();
+            lblJudul.setFont(fJudulMovie);
+            lblJudul.setText(movie.getJudul());
+            panel.add(lblJudul,gbcPanel);
+            
+            //iconX
+            gbcPanel.fill = GridBagConstraints.BOTH;
+            gbcPanel.weightx = 0.1;
+            gbcPanel.weighty = 1;
+            gbcPanel.gridwidth = xKanan;
+            gbcPanel.gridheight = 1;
+            gbcPanel.gridx = 2;
+            gbcPanel.gridy = 0;
+            
+            JLabel lbliconX = new JLabel(new ImageIcon("images/icon/iconx_nonhover.png"));
+            String judul = movie.getJudul();
+            String sutradara = movie.getSutradara();
+            lbliconX.setCursor(new Cursor(Cursor.HAND_CURSOR));
+            
+            
+            lbliconX.addMouseListener(new MouseListener(){
+                @Override
+                public void mouseClicked(MouseEvent me) {
+                   
+                        int answer = JOptionPane.showConfirmDialog(null,
+                                "Apakah anda yakin?",
+                                "Hapus Movie",
+                                JOptionPane.YES_NO_OPTION);
+
+                        if(answer == JOptionPane.YES_OPTION){
+                            boolean isSuccess = DatabaseUtil.deleteMovie(movie.getJudul(), 
+                                    movie.getSutradara());
+
+                            if(isSuccess){
+                                JOptionPane.showMessageDialog(null,
+                                        "Movie " + judul + " oleh " + sutradara 
+                                                +" telah berhasil dihapus.",
+                                        "Delete Berhasil",
+                                        JOptionPane.INFORMATION_MESSAGE);
+                                tampilSemuaDataMovie();
+                            }
+                            else{
+                              
+                                JOptionPane.showMessageDialog(null,
+                                        "Terjadi kesalahan sistem, movie gagal dihapus.",
+                                        "Error: Delete Gagal",
+                                        JOptionPane.ERROR_MESSAGE);
+                            }
+                        }
+                    
+                    
+                }
+
+                @Override
+                public void mousePressed(MouseEvent me) {
+                     //To change body of generated methods, choose Tools | Templates.
+                }
+
+                @Override
+                public void mouseReleased(MouseEvent me) {
+                   //To change body of generated methods, choose Tools | Templates.
+                }
+
+                @Override
+                public void mouseEntered(MouseEvent me) {
+                    //To change body of generated methods, choose Tools | Templates.
+                    
+                    lbliconX.setIcon(new ImageIcon ("images/icon/iconx_hover.png"));
+                            
+                }
+
+                @Override
+                public void mouseExited(MouseEvent me) {
+                    lbliconX.setIcon(new ImageIcon ("images/icon/iconX_nonhover.png"));
+                    //To change body of generated methods, choose Tools | Templates.
+                }
+            });
+            panel.add(lbliconX,gbcPanel);
+            
+            //sutradara
+            gbcPanel.fill = GridBagConstraints.BOTH;
+            gbcPanel.weightx = xKanan;
+            gbcPanel.weighty = 1;
+            gbcPanel.gridwidth = 2;
+            gbcPanel.gridheight = 1;
+            gbcPanel.gridx = 1;
+            gbcPanel.gridy = 1;
+            JLabel lblsutradara = new JLabel();
+            lblsutradara.setText("oleh "+movie.getSutradara());
+            lblsutradara.setFont(fDataMovie);
+            panel.add(lblsutradara,gbcPanel);
+            
+            //TahunTerbit
+            gbcPanel.fill = GridBagConstraints.BOTH;
+            gbcPanel.weightx = xKanan;
+            gbcPanel.weighty = 1;
+            gbcPanel.gridwidth = 2;
+            gbcPanel.gridheight = 1;
+            gbcPanel.gridx = 1;
+            gbcPanel.gridy = 2;
+            JLabel lblDataTahunrelease = new JLabel();
+            lblDataTahunrelease.setText("Tahun " + Integer.toString(movie.getTahunrelease()));
+            lblDataTahunrelease.setFont(fDataMovie);
+            panel.add(lblDataTahunrelease,gbcPanel);
+            
+            //studio
+            gbcPanel.fill = GridBagConstraints.BOTH;
+            gbcPanel.weightx = xKanan;
+            gbcPanel.weighty = 1;
+            gbcPanel.gridwidth = 2;
+            gbcPanel.gridheight = 1;
+            gbcPanel.gridx = 1;
+            gbcPanel.gridy = 3;
+            JLabel lblStudio = new JLabel();
+            lblStudio.setText("di Garap oleh " + movie.getStudio());
+            lblStudio.setFont(fDataMovie);
+            panel.add(lblStudio,gbcPanel);
+            
+            //Peringkat
+            gbcPanel.fill = GridBagConstraints.BOTH;
+            gbcPanel.weightx = xKanan;
+            gbcPanel.weighty = 1;
+            gbcPanel.gridwidth = 2;
+            gbcPanel.gridheight = 1;
+            gbcPanel.gridx = 1;
+            gbcPanel.gridy = 4;
+            JLabel lblDataPeringkat = new JLabel();
+            lblDataPeringkat.setText("Peringkat : "+ Integer.toString(movie.getPeringkat()) + " dari 10");
+            lblDataPeringkat.setFont(fDataMovie);
+            panel.add(lblDataPeringkat,gbcPanel);
+            
+            //Sinopsis
+            gbcPanel.fill = GridBagConstraints.BOTH;
+            gbcPanel.weightx = xKanan;
+            gbcPanel.weighty = 6;
+            gbcPanel.gridwidth = 2;
+            gbcPanel.gridheight = 3;
+            gbcPanel.gridx = 1;
+            gbcPanel.gridy = 5;
+            JScrollPane jspFdaSinopsis = new JScrollPane();
+            JTextArea fdaSinopsis = new JTextArea();
+            fdaSinopsis.setText(movie.getSinopsis());
+            fdaSinopsis.setLineWrap(true);
+            fdaSinopsis.setWrapStyleWord(true);
+            fdaSinopsis.setColumns(20);
+            fdaSinopsis.setRows(5);
+            fdaSinopsis.setFont(fDataMovie);
+            fdaSinopsis.setEditable(false);
+            jspFdaSinopsis.setViewportView(fdaSinopsis);
+//            jspFdaSinopsis.add(fdaSinopsis);
+            panel.add(jspFdaSinopsis,gbcPanel);
+            
+            //Status  
+            gbcPanel.fill = GridBagConstraints.BOTH;
+            gbcPanel.weightx = xKanan;
+            gbcPanel.weighty = 1;
+            gbcPanel.gridwidth = xKanan;
+            gbcPanel.gridheight = 1;
+            gbcPanel.gridx = 1;
+            gbcPanel.gridy = 9;
+            JLabel lblStatus = new JLabel();
+            lblStatus.setText("Status tonton : " + movie.getTranslatedStatus() + " ditonton");
+            lblStatus.setFont(fDataMovie);
+            panel.add(lblStatus,gbcPanel);
+            
+            //genre
+            gbcPanel.fill = GridBagConstraints.BOTH;
+            gbcPanel.weightx = 3;
+            gbcPanel.weighty = 1;
+            gbcPanel.gridwidth = 3;
+            gbcPanel.gridheight = 1;
+            gbcPanel.gridx = 0;
+            gbcPanel.gridy = 10;
+            JLabel lblGenre = new JLabel();
+            lblGenre.setText("Belum ada Genre");
+            ArrayList<String> genres= new ArrayList<>();
+            if(movie.getGenres().size()>0){
+                genres= movie.getGenres();
+                int i=0;
+                for (String genre:genres){
+                    if(i==0) lblGenre.setText(genre);
+                    else lblGenre.setText(lblGenre.getText()+","+ genre);
+                    i++;      
+                }
+                
+            }
+            lblGenre.setForeground(Color.BLUE);
+            lblGenre.setFont(fDataMovie);
+            lblGenre.setHorizontalAlignment(SwingConstants.CENTER);
+            panel.add(lblGenre,gbcPanel);
+            
+
+            //membuat klik kanan pada panel
+            JPopupMenu popPanel;
+            
+            popPanel = new JPopupMenu();
+            JMenuItem miEdit = new JMenuItem("Edit movie");
+            miEdit.addActionListener((ActionEvent ae) -> {
+                
+                    dlgEditMovie deb = new dlgEditMovie(this, true);
+                    deb.setJudul(judul);
+                    deb.setSutradara(sutradara);
+                    deb.setLocationRelativeTo(null);
+                    deb.setVisible(true);
+
+                    tampilSemuaDataMovie();
+                
+                
+            });
+            popPanel.add(miEdit);
+            
+            popPanel.addSeparator();
+            
+            JMenuItem miDelete = new JMenuItem("Delete movie");
+            miDelete.addActionListener((ActionEvent ae) -> {
+                
+                    int answer = JOptionPane.showConfirmDialog(null,
+                            "Apakah anda yakin?",
+                            "Hapus Movie",
+                            JOptionPane.YES_NO_OPTION);
+
+                    if(answer == JOptionPane.YES_OPTION){
+                        boolean isSuccess = DatabaseUtil.deleteMovie(movie.getJudul(), 
+                                movie.getSutradara());
+
+                        if(isSuccess){
+                            JOptionPane.showMessageDialog(null,
+                                    "Movie " + judul + " oleh " + sutradara 
+                                            +" telah berhasil dihapus.",
+                                    "Delete Berhasil",
+                                    JOptionPane.INFORMATION_MESSAGE);
+                            tampilSemuaDataMovie();
+                        }
+                        else{
+                            
+                            JOptionPane.showMessageDialog(null,
+                                    "Terjadi kesalahan sistem, movie gagal dihapus.",
+                                    "Error: Delete Gagal",
+                                    JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
+                
+               
+            });
+            popPanel.add(miDelete);
+
+            //Add listener to components that can bring up popup menus.
+            panel.setComponentPopupMenu(popPanel);
+            fdaSinopsis.setComponentPopupMenu(popPanel);
+            jspFdaSinopsis.setComponentPopupMenu(popPanel);
+            
+            //panel
+            gbcPanelAll.insets = new Insets(5,5,5,5);
+            gbcPanelAll.fill = GridBagConstraints.HORIZONTAL;
+            gbcPanelAll.weightx = xKanan;
+            gbcPanelAll.weighty = 1;
+            gbcPanelAll.gridx = x;
+            gbcPanelAll.gridy = y;
+            
+            pnlSemuaMovie.add(panel,gbcPanelAll);
+            
+            
+            x++;
+            if(x == 3){
+                x = 0;
+                y++;
+            }
+        }
+        
+        if(movies.size() < 6){
+            JPanel panelKosong = new JPanel();
+            panelKosong.setMinimumSize(new Dimension(width,height));
+            panelKosong.setPreferredSize(new Dimension(width,height));
+            panelKosong.setVisible(true);
+            
+            int count = movies.size();
+            while(count < 6){
+                gbcPanelAll.fill = GridBagConstraints.HORIZONTAL;
+                gbcPanelAll.weightx = 1;
+                gbcPanelAll.weighty = 1;
+                gbcPanelAll.gridx = x;
+                gbcPanelAll.gridy = y;
+                
+                pnlSemuaMovie.add(panelKosong,gbcPanelAll);
+                count++;
+                x++;
+                if(x == 3){
+                    x = 0;
+                    y++;
+                }
+            }
+            
+        }
+        tabMovie.add(new JScrollPane(pnlSemuaMovie),BorderLayout.CENTER);
+        tabMovie.setTitleAt(0,"All");
+    }
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowActivated
-
+    private void search(){
+        
+        String keyword =fldsearch.getText();
+        Boolean isJudul=rbjudul.isSelected();
+        Boolean isSutradara=rbsutradara.isSelected();
+        Boolean isStudio=rbstudio.isSelected();
+        Boolean isSinopsis=rbsinopsis.isSelected();
+        if(keyword.length()>=3){
+          tampilDataMovie(DatabaseUtil.SelectMovieBerdasarkanKeyword(keyword,isJudul,isSutradara,isStudio,isSinopsis));
+         //  statePnlMovie= STATE_PANEL_MOVIE.SEARCHED;
+        }
+    }
     private void btnTambahMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahMovieActionPerformed
         // TODO add your handling code here:
        
@@ -578,10 +990,11 @@ public class Mainpage extends javax.swing.JFrame {
         
 
      
-       // new PlaceHolder(fldSearch,"Search here...");
+       new PlaceHolder(fldsearch,"Search here...");
       
         
        tampilSemuaDataMovie();
+       //StatePanelMovie= STATE_PANEL_MOVIE.ALL
     }//GEN-LAST:event_formWindowOpened
 
     char switchBtnFilterFunction = 'a';
@@ -593,12 +1006,6 @@ public class Mainpage extends javax.swing.JFrame {
         
        
     }//GEN-LAST:event_btnTambahGenreActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        new Search().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnHapusGenreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusGenreActionPerformed
         // TODO add your handling code here:
@@ -613,6 +1020,21 @@ public class Mainpage extends javax.swing.JFrame {
         Mainpage.this.setVisible(false);
         l.setVisible(true);
     }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void fldsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fldsearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fldsearchActionPerformed
+
+    private void fldsearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fldsearchKeyReleased
+        // TODO add your handling code here:
+        search();
+           
+        
+    }//GEN-LAST:event_fldsearchKeyReleased
+
+    private void rbjudulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbjudulActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbjudulActionPerformed
 
     /**
      * @param args the command line arguments
@@ -657,8 +1079,12 @@ public class Mainpage extends javax.swing.JFrame {
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnTambahGenre;
     private javax.swing.JButton btnTambahMovie;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTextField fldsearch;
     private javax.swing.JPanel pnlTemp;
+    private javax.swing.JRadioButton rbjudul;
+    private javax.swing.JRadioButton rbsinopsis;
+    private javax.swing.JRadioButton rbstudio;
+    private javax.swing.JRadioButton rbsutradara;
     private javax.swing.JSeparator separator1;
     private javax.swing.JTabbedPane tabMovie;
     // End of variables declaration//GEN-END:variables

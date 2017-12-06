@@ -39,19 +39,31 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="tabMovie" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="btnLogout" min="-2" pref="117" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="btnTambahMovie" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnTambahGenre" min="-2" pref="41" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnHapusGenre" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                              <Component id="rbjudul" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="rbsutradara" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="rbstudio" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="rbsinopsis" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="fldsearch" min="-2" pref="445" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="btnLogout" min="-2" pref="117" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -66,14 +78,23 @@
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Component id="separator1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnTambahMovie" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnTambahGenre" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnHapusGenre" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="fldsearch" alignment="0" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btnTambahMovie" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnTambahGenre" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnHapusGenre" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="tabMovie" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="rbjudul" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="rbsutradara" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="rbstudio" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="rbsinopsis" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="tabMovie" min="-2" pref="532" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -114,7 +135,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="328" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="502" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -130,14 +151,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTambahGenreActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Search"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnHapusGenre">
@@ -158,6 +171,35 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLogoutActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="fldsearch">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fldsearchActionPerformed"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fldsearchKeyReleased"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="rbjudul">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="judul"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbjudulActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="rbsutradara">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Sutradara"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="rbstudio">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Studio"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="rbsinopsis">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Sinopsis"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
