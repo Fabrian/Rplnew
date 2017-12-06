@@ -32,11 +32,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="rbSudah" min="-2" pref="86" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="rbBelum" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="rbSudah" min="-2" pref="86" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                               <Component id="lblPeringkat" min="-2" max="-2" attributes="0"/>
@@ -50,6 +46,7 @@
                           <Component id="btnPilihSampulBuku" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
                           <Component id="lblCover" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace max="32767" attributes="0"/>
@@ -110,7 +107,10 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
-                              <Component id="btnTambah" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="rbBelum" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnTambah" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
                               <Component id="btnBatal" min="-2" pref="71" max="-2" attributes="0"/>
                           </Group>

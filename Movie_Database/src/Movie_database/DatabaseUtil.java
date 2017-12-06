@@ -333,4 +333,59 @@ public class DatabaseUtil {
         }
         return false;
     }
+    
+    public static ArrayList<Movie> SelectMovieBerdasarkanKeyword(String keyword,
+            boolean isJudul, boolean isSutradara, boolean isStudio,boolean isSinopsis){
+        ArrayList<Movie> movies = new ArrayList<>();
+        String sqlSelectMovie="SELECT * FROM movie WHERE";
+        String conditions[]=
+        {
+            "judul  LIKE '%" +keyword+ "%'",
+            "sutradara  LIKE '%" +keyword+ "%'",
+            "studio  LIKE '%" +keyword+ "%'",
+            "sinopsis  LIKE '%" +keyword+ "%'"
+        };
+        boolean isconditions[]={isJudul,isSutradara,isStudio,isSinopsis};
+        try(Connection conn=connect();){
+            String conditionFinal="";
+            for(int i = 0;i<conditions.length;i++){
+                if(isconditions[i]){
+                    if(conditionFinal.equals(""))conditionFinal+= conditions[i];
+                    else conditionFinal += "OR" +conditions[i];
+                }
+            }
+            if(conditionFinal.equals(""))sqlSelectMovie += "1=1";
+            else sqlSelectMovie += conditionFinal;
+            sqlSelectMovie+="ORDER BY 1;";
+            Statement stmtSelectMovie=conn.createStatement();
+            ResultSet rsSelectBukuBerdasarkanKeyword=stmtSelectMovie.executeQuery(sqlSelectMovie);
+           while(rsSelectBukuBerdasarkanKeyword.next()) {
+               String judul= rsSelectBukuBerdasarkanKeyword.getString("judul");
+               String sutradara= rsSelectBukuBerdasarkanKeyword.getString("sutradara");
+               
+               ArrayList<String> genres = new ArrayList<>();
+               String sqlSelectGenre= "SELECT nama_genre, "
+                        + "urutan_masuk "
+                        + "FROM daftar_genre "
+                        + "WHERE judul = \""+ judul + "\" AND "
+                        + "sutradara = \""+ sutradara + "\""
+                        + "ORDER BY 2;";
+                 Statement stmtSelectGenre  = conn.createStatement();
+                ResultSet rsSelectGenre = stmtSelectGenre.executeQuery(sqlSelectGenre);
+                while (rsSelectGenre.next()) {
+                    genres.add(rsSelectGenre.getString("nama_genre"));
+                }
+                movies.add(new Movie(judul,sutradara,rsSelectBukuBerdasarkanKeyword.getString("studio"),genres
+                        ,rsSelectBukuBerdasarkanKeyword.getInt("peringkat"),rsSelectBukuBerdasarkanKeyword.getInt("tahun_release")
+                        ,rsSelectBukuBerdasarkanKeyword.getString("sinopsis")
+                        ,rsSelectBukuBerdasarkanKeyword.getString("status")
+                        ,rsSelectBukuBerdasarkanKeyword.getString("path_sampul")
+                ));
+           }
+            
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+   return movies; 
+    }
 }

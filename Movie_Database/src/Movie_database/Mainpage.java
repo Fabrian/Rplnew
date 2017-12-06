@@ -71,6 +71,7 @@ public class Mainpage extends javax.swing.JFrame {
         btnTambahGenre = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         btnHapusGenre = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -132,6 +133,14 @@ public class Mainpage extends javax.swing.JFrame {
             }
         });
 
+        btnLogout.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -139,9 +148,9 @@ public class Mainpage extends javax.swing.JFrame {
             .addComponent(separator1)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(tabMovie, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tabMovie)
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(btnTambahMovie)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnTambahGenre, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -149,13 +158,18 @@ public class Mainpage extends javax.swing.JFrame {
                         .addComponent(btnHapusGenre)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(86, 86, 86)
+                .addContainerGap()
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
                 .addComponent(separator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -195,9 +209,13 @@ public class Mainpage extends javax.swing.JFrame {
             panel.setMinimumSize(new Dimension(width,height));
             panel.setPreferredSize(new Dimension(width,height));
             panel.setVisible(true);
-            panel.setBackground(Color.YELLOW);
-
             
+           if(movie.getStatus()=="2"){
+            panel.setBackground(Color.GREEN);
+          }else if(movie.getStatus()=="0"){
+            panel.setBackground(Color.YELLOW);
+                  }
+        
             //gambar
             gbcPanel.fill = GridBagConstraints.NONE;
             gbcPanel.weightx = 1;
@@ -410,6 +428,17 @@ public class Mainpage extends javax.swing.JFrame {
             gbcPanel.gridy = 10;
             JLabel lblGenre = new JLabel();
             lblGenre.setText("Belum ada Genre");
+            ArrayList<String> genres= new ArrayList<>();
+            if(movie.getGenres().size()>0){
+                genres= movie.getGenres();
+                int i=0;
+                for (String genre:genres){
+                    if(i==0) lblGenre.setText(genre);
+                    else lblGenre.setText(lblGenre.getText()+","+ genre);
+                    i++;      
+                }
+                
+            }
             lblGenre.setForeground(Color.BLUE);
             lblGenre.setFont(fDataMovie);
             lblGenre.setHorizontalAlignment(SwingConstants.CENTER);
@@ -532,7 +561,7 @@ public class Mainpage extends javax.swing.JFrame {
            dtb.setLocationRelativeTo(null);
             dtb.setVisible(true);
             
-           // tampilSemuaDataMovie();
+           tampilSemuaDataMovie();
         
        
     }//GEN-LAST:event_btnTambahMovieActionPerformed
@@ -578,6 +607,13 @@ public class Mainpage extends javax.swing.JFrame {
             dhg.setLocationRelativeTo(this);
     }//GEN-LAST:event_btnHapusGenreActionPerformed
 
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+        login l = new login();
+        Mainpage.this.setVisible(false);
+        l.setVisible(true);
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -618,6 +654,7 @@ public class Mainpage extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnHapusGenre;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnTambahGenre;
     private javax.swing.JButton btnTambahMovie;
     private javax.swing.JButton jButton1;
